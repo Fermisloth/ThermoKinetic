@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROI Calculator — ThermoKinetic</title>
+    <meta name="description"
+        content="Calculate your cold-chain savings. See how much waste and revenue loss ThermoKinetic can eliminate from your supply chain.">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <svg viewBox="0 0 28 28" fill="none">
+                    <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                        fill="rgba(0,212,255,0.08)" />
+                    <circle cx="14" cy="14" r="4" stroke="#00D4FF" stroke-width="1.5" fill="none" />
+                </svg>
+                ThermoKinetic
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/platform">Platform</a>
+                <a href="/how-it-works">How It Works</a>
+                <a href="/compliance">Compliance</a>
+                <a href="/pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/contact" class="nav-login">Login</a>
+                <a href="/contact" class="btn btn-primary btn-sm">Request Demo</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+        <div class="container fade-up">
+            <span class="eyebrow">SAVINGS ESTIMATOR</span>
+            <h1 style="font-size: 40px;">Calculate Your Cold-Chain Savings</h1>
+            <p class="subtitle">See how much waste and revenue loss ThermoKinetic can eliminate from your supply chain.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ CALCULATOR ═══ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="grid grid-2 fade-up" style="gap: 32px; align-items: start;">
+                <!-- Input Panel -->
+                <div class="card card-no-hover">
+                    <h3 class="mb-32">Configure Your Parameters</h3>
+
+                    <div class="range-group">
+                        <div class="range-header">
+                            <span class="range-label">Annual Shipment Volume</span>
+                            <span class="range-value" id="volumeVal">10,000 units</span>
+                        </div>
+                        <input type="range" id="volumeSlider" min="1000" max="100000" value="10000" step="500">
+                    </div>
+
+                    <div class="range-group">
+                        <div class="range-header">
+                            <span class="range-label">Average Product Value per Unit</span>
+                            <span class="range-value" id="valueVal">$250</span>
+                        </div>
+                        <input type="range" id="valueSlider" min="10" max="5000" value="250" step="10">
+                    </div>
+
+                    <div class="range-group">
+                        <div class="range-header">
+                            <span class="range-label">Current Excursion Rate</span>
+                            <span class="range-value" id="rateVal">8%</span>
+                        </div>
+                        <input type="range" id="rateSlider" min="1" max="30" value="8" step="1">
+                    </div>
+
+                    <div>
+                        <span class="range-label" style="display: block; margin-bottom: 12px;">Product Type</span>
+                        <div class="pill-toggle" id="productToggle">
+                            <button class="pill-option" data-value="mRNA">mRNA</button>
+                            <button class="pill-option active" data-value="Vaccine">Vaccine</button>
+                            <button class="pill-option" data-value="Biologic">Biologic</button>
+                            <button class="pill-option" data-value="Insulin">Insulin</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Output Panel -->
+                <div class="card card-no-hover" style="border-left: 4px solid var(--accent-cryo);">
+                    <h3 class="mb-32">Projected Impact</h3>
+
+                    <div class="stat-card mb-24">
+                        <div
+                            style="display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 4px;">
+                            <span
+                                style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-warn); animation: qrPulse 2s ease infinite;"></span>
+                            <span class="mono" style="font-size: 10px; color: var(--accent-warn);">CURRENT WASTE</span>
+                        </div>
+                        <div class="stat-number warn" id="wasteOutput">$200,000</div>
+                        <div class="stat-label">Estimated Annual Waste</div>
+                    </div>
+
+                    <div class="stat-card mb-24" style="border: 1px solid rgba(0,255,156,0.15);">
+                        <div
+                            style="display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 4px;">
+                            <span
+                                style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-bio); animation: qrPulse 2s ease infinite;"></span>
+                            <span class="mono" style="font-size: 10px; color: var(--accent-bio);">PROJECTED
+                                SAVINGS</span>
+                        </div>
+                        <div class="stat-number bio" id="savingsOutput">$40,000</div>
+                        <div class="stat-label">Annual Savings with ThermoKinetic</div>
+                    </div>
+
+                    <div class="stat-card mb-24">
+                        <div
+                            style="display: flex; align-items: center; gap: 8px; justify-content: center; margin-bottom: 4px;">
+                            <span
+                                style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-cryo); animation: qrPulse 2s ease infinite;"></span>
+                            <span class="mono" style="font-size: 10px;">REDUCTION</span>
+                        </div>
+                        <div class="stat-number cryo" id="reductionOutput">20%</div>
+                        <div class="stat-label">Waste Reduction</div>
+                    </div>
+
+                    <a href="/contact"
+                        style="display: block; text-align: center; margin-top: 16px; font-size: 14px;">Request Demo for
+                        Custom Analysis →</a>
+                </div>
+            </div>
+
+            <!-- Footnote -->
+            <p class="fade-up"
+                style="text-align: center; font-size: 13px; color: var(--text-secondary); opacity: 0.7; margin-top: 48px; font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto;">
+                These projections are based on validated wastage reduction data across AbbVie, Novartis, and Sanofi
+                stability datasets. Actual results may vary based on product type and supply chain conditions.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section-sm">
+        <div class="container">
+            <div class="cta-banner fade-up">
+                <div style="position: relative; z-index: 1;">
+                    <h3 class="mb-8">See real savings with a personalized pilot.</h3>
+                    <p>We'll model your exact supply chain and product portfolio.</p>
+                </div>
+                <a href="/contact" class="btn btn-primary" style="position: relative; z-index: 1;">Start Free Pilot</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo" style="margin-bottom:8px;"><svg viewBox="0 0 28 28" width="24"
+                            height="24" fill="none">
+                            <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                                fill="rgba(0,212,255,0.08)" />
+                        </svg>ThermoKinetic</a>
+                    <p>Bio-Digital Twin cold-chain integrity platform.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4><a href="/platform">Platform</a><a href="/how-it-works">How It Works</a><a
+                        href="/roi-calculator">ROI Calculator</a><a href="/pricing">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a><a
+                        href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4><a href="#">Documentation</a><a href="#">API Reference</a><a href="#">Case
+                        Studies</a><a href="/compliance">Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
+                        href="#">Security</a><a href="#">GDPR</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 ThermoKinetic. All rights reserved.</span>
+                <div><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/roi-calculator.js"></script>
+</body>
+
+</html>

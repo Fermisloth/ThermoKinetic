@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — ThermoKinetic</title>
+    <meta name="description"
+        content="Stability-as-a-Service. One platform, three tiers — flexible pricing for cold-chain operations of any scale.">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <svg viewBox="0 0 28 28" fill="none">
+                    <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                        fill="rgba(0,212,255,0.08)" />
+                    <circle cx="14" cy="14" r="4" stroke="#00D4FF" stroke-width="1.5" fill="none" />
+                </svg>
+                ThermoKinetic
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/platform">Platform</a>
+                <a href="/how-it-works">How It Works</a>
+                <a href="/compliance">Compliance</a>
+                <a href="/pricing" class="active">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/contact" class="nav-login">Login</a>
+                <a href="/contact" class="btn btn-primary btn-sm">Request Demo</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+        <div class="container fade-up">
+            <span class="eyebrow">STABILITY-AS-A-SERVICE</span>
+            <h1 style="font-size: 40px;">One Platform. Three Tiers.</h1>
+            <p class="subtitle">Flexible pricing designed for cold-chain operations of any scale — from regional
+                distributors to global pharmaceutical enterprises.</p>
+        </div>
+    </section>
+
+    <!-- ═══ BILLING TOGGLE ═══ -->
+    <section style="text-align: center; padding-bottom: 48px;">
+        <div class="container fade-up">
+            <div style="display: inline-flex; align-items: center; gap: 16px;">
+                <div class="toggle-group" id="billingToggle">
+                    <button class="toggle-option active" data-period="monthly">Monthly</button>
+                    <button class="toggle-option" data-period="annual">Annual</button>
+                </div>
+                <span class="toggle-save" id="saveBadge" style="display: none;">Save 20%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PRICING CARDS ═══ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="grid grid-3 fade-up" style="align-items: start;">
+
+                <!-- Kinetic Starter -->
+                <div class="card pricing-card">
+                    <h3 class="mb-8">Kinetic Starter</h3>
+                    <p style="font-size: 14px; margin-bottom: 8px;">For teams exploring cold-chain intelligence</p>
+                    <div class="price" id="price-starter">$499<span class="price-period">/mo</span></div>
+                    <div class="pricing-divider"></div>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> Up to 500 shipments/month</li>
+                        <li><span class="check">✓</span> AKM-Predict engine only</li>
+                        <li><span class="check">✓</span> Email excursion alerts</li>
+                        <li><span class="check">✓</span> Basic compliance reports</li>
+                        <li><span class="check">✓</span> Standard support (48hr SLA)</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-secondary btn-full">Get Started</a>
+                </div>
+
+                <!-- Bio-Twin Pro (Featured) -->
+                <div class="card pricing-card featured">
+                    <span class="badge badge-gold" style="display: inline-block; margin-bottom: 12px;">MOST
+                        POPULAR</span>
+                    <h3 class="mb-8">Bio-Twin Pro</h3>
+                    <p style="font-size: 14px; margin-bottom: 8px;">For operations that demand full visibility</p>
+                    <div class="price" id="price-pro">$1,499<span class="price-period">/mo</span></div>
+                    <div class="pricing-divider"></div>
+                    <ul class="feature-list">
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> Unlimited shipments</li>
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> All 3 engines (AKM + XATP +
+                            Routing)</li>
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> Full API access</li>
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> Dynamic Expiry QR codes</li>
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> Compliance exports (WHO PQS,
+                            DSCSA)</li>
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> Priority support (4hr SLA)
+                        </li>
+                        <li><span class="check" style="color: var(--accent-bio);">✓</span> Custom dashboards</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-primary btn-full">Start Free Pilot</a>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="card pricing-card" style="border-top: 4px solid var(--accent-gold);">
+                    <h3 class="mb-8">Enterprise</h3>
+                    <p style="font-size: 14px; margin-bottom: 8px;">For global pharmaceutical operations</p>
+                    <div class="price" style="color: var(--accent-gold);">Custom</div>
+                    <div class="pricing-divider"></div>
+                    <ul class="feature-list">
+                        <li><span class="check gold">✓</span> Everything in Bio-Twin Pro</li>
+                        <li><span class="check gold">✓</span> Custom SLA & uptime guarantees</li>
+                        <li><span class="check gold">✓</span> WHO audit preparation support</li>
+                        <li><span class="check gold">✓</span> Dedicated Customer Success Manager</li>
+                        <li><span class="check gold">✓</span> On-premises deployment option</li>
+                        <li><span class="check gold">✓</span> SSO & advanced security</li>
+                        <li><span class="check gold">✓</span> Volume-based pricing</li>
+                    </ul>
+                    <a href="/contact" class="btn btn-gold btn-full">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FAQ ═══ -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-48 fade-up">Frequently Asked Questions</h2>
+            <div style="max-width: 720px; margin: 0 auto;" class="fade-up">
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Can I switch tiers mid-contract? <span
+                            class="icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>Yes. You can upgrade at any time and your billing will be prorated. Downgrades take effect at
+                            the next billing cycle.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">What's included in the free pilot? <span
+                            class="icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>The 30-day free pilot includes full Bio-Twin Pro access with up to 100 shipments, onboarding
+                            support, and a dedicated pilot success manager.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">Do you offer discounts for health ministries? <span
+                            class="icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>Yes. We offer special pricing for government health ministries and NGOs working in
+                            immunization. Contact our sales team for details.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-trigger">How is shipment volume calculated? <span
+                            class="icon">+</span></button>
+                    <div class="accordion-body">
+                        <p>A shipment is defined as a single tracked unit or container with an active Bio-Digital Twin.
+                            Bulk containers count as one shipment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo" style="margin-bottom:8px;"><svg viewBox="0 0 28 28" width="24"
+                            height="24" fill="none">
+                            <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                                fill="rgba(0,212,255,0.08)" />
+                        </svg>ThermoKinetic</a>
+                    <p>Bio-Digital Twin cold-chain integrity platform.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4><a href="/platform">Platform</a><a href="/how-it-works">How It Works</a><a
+                        href="/roi-calculator">ROI Calculator</a><a href="/pricing">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a><a
+                        href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4><a href="#">Documentation</a><a href="#">API Reference</a><a href="#">Case
+                        Studies</a><a href="/compliance">Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
+                        href="#">Security</a><a href="#">GDPR</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 ThermoKinetic. All rights reserved.</span>
+                <div><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/pricing.js"></script>
+</body>
+
+</html>

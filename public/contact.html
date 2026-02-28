@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Demo — ThermoKinetic</title>
+    <meta name="description"
+        content="Book a personalized demo and discover how Bio-Digital Twins can transform your cold-chain operations.">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <svg viewBox="0 0 28 28" fill="none">
+                    <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                        fill="rgba(0,212,255,0.08)" />
+                    <circle cx="14" cy="14" r="4" stroke="#00D4FF" stroke-width="1.5" fill="none" />
+                </svg>
+                ThermoKinetic
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/platform">Platform</a>
+                <a href="/how-it-works">How It Works</a>
+                <a href="/compliance">Compliance</a>
+                <a href="/pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/contact" class="nav-login">Login</a>
+                <a href="/contact" class="btn btn-primary btn-sm">Request Demo</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+        <div class="container fade-up">
+            <span class="eyebrow">GET IN TOUCH</span>
+            <h1 style="font-size: 40px;">See ThermoKinetic in Action</h1>
+            <p class="subtitle">Book a personalized demo and discover how Bio-Digital Twins can transform your
+                cold-chain operations.</p>
+        </div>
+    </section>
+
+    <!-- ═══ FORM + INFO SPLIT ═══ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="grid grid-2 fade-up" style="gap: 32px; align-items: start;">
+
+                <!-- Form Column -->
+                <div class="card card-no-hover">
+                    <h3 class="mb-32">Request Your Demo</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="company">Company</label>
+                            <input type="text" id="company" name="company" class="form-input" placeholder="Pharma Corp"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="role">Role</label>
+                            <select id="role" name="role" class="form-select" required>
+                                <option value="" disabled selected>Select your role</option>
+                                <option value="Supply Chain Manager">Supply Chain Manager</option>
+                                <option value="Compliance Officer">Compliance Officer</option>
+                                <option value="Health Ministry">Health Ministry</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Work Email</label>
+                            <input type="email" id="email" name="email" class="form-input"
+                                placeholder="john@pharmacorp.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="volume">Monthly Shipment Volume</label>
+                            <input type="text" id="volume" name="volume" class="form-input"
+                                placeholder="e.g. 5,000 units">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="4"
+                                placeholder="Tell us about your cold-chain challenges..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Request My Demo →</button>
+                        <p style="text-align: center; font-size: 12px; color: var(--text-secondary); margin-top: 12px;">
+                            We'll respond within 24 hours.</p>
+                    </form>
+                </div>
+
+                <!-- Info Column -->
+                <div>
+                    <div class="card card-no-hover mb-24">
+                        <h3 class="mb-24">What to Expect</h3>
+                        <ul class="check-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>A 30-minute personalized walkthrough of the ThermoKinetic platform tailored to
+                                    your supply chain profile.</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Live demonstration of Bio-Digital Twin technology using sample data from your
+                                    product category.</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Custom ROI projection showing projected waste reduction and cost savings for your
+                                    operation.</span>
+                            </li>
+                        </ul>
+
+                        <div class="pricing-divider"></div>
+
+                        <h4 class="mb-16">Prefer to talk now?</h4>
+                        <p style="margin-bottom: 8px;">
+                            <span class="mono" style="font-size: 15px;">+1 (888) 555-0142</span>
+                        </p>
+                        <p>
+                            <span class="mono" style="font-size: 15px;">demos@thermokinetic.io</span>
+                        </p>
+                    </div>
+
+                    <!-- Calendar Widget -->
+                    <div class="card card-no-hover">
+                        <div class="calendar-widget" style="border: none; padding: 0;">
+                            <div class="calendar-header">
+                                <button>‹</button>
+                                <h4>March 2026</h4>
+                                <button>›</button>
+                            </div>
+                            <div class="calendar-grid">
+                                <span class="day-header">Mon</span>
+                                <span class="day-header">Tue</span>
+                                <span class="day-header">Wed</span>
+                                <span class="day-header">Thu</span>
+                                <span class="day-header">Fri</span>
+                                <span class="day-header">Sat</span>
+                                <span class="day-header">Sun</span>
+                                <span class="day empty"></span>
+                                <span class="day empty"></span>
+                                <span class="day empty"></span>
+                                <span class="day empty"></span>
+                                <span class="day empty"></span>
+                                <span class="day empty"></span>
+                                <span class="day">1</span>
+                                <span class="day available">2</span>
+                                <span class="day available">3</span>
+                                <span class="day">4</span>
+                                <span class="day available">5</span>
+                                <span class="day">6</span>
+                                <span class="day">7</span>
+                                <span class="day">8</span>
+                                <span class="day available">9</span>
+                                <span class="day available">10</span>
+                                <span class="day">11</span>
+                                <span class="day available">12</span>
+                                <span class="day">13</span>
+                                <span class="day">14</span>
+                                <span class="day">15</span>
+                                <span class="day available">16</span>
+                                <span class="day available">17</span>
+                                <span class="day">18</span>
+                                <span class="day available">19</span>
+                                <span class="day">20</span>
+                                <span class="day">21</span>
+                                <span class="day">22</span>
+                                <span class="day available">23</span>
+                                <span class="day available">24</span>
+                                <span class="day">25</span>
+                                <span class="day available">26</span>
+                                <span class="day">27</span>
+                                <span class="day">28</span>
+                                <span class="day">29</span>
+                                <span class="day available">30</span>
+                                <span class="day available">31</span>
+                            </div>
+                            <p
+                                style="margin-top: 12px; font-size: 12px; color: var(--accent-cryo); text-align: center;">
+                                <span
+                                    style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-cryo); margin-right: 6px;"></span>
+                                Available demo slots
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Trust Badges -->
+                    <div class="flex flex-gap-sm mt-24" style="flex-wrap: wrap; justify-content: center;">
+                        <span class="badge" style="font-size: 11px;">SOC 2 Type II Certified</span>
+                        <span class="badge" style="font-size: 11px;">GDPR Compliant</span>
+                        <span class="badge" style="font-size: 11px;">256-bit Encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo" style="margin-bottom:8px;"><svg viewBox="0 0 28 28" width="24"
+                            height="24" fill="none">
+                            <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                                fill="rgba(0,212,255,0.08)" />
+                        </svg>ThermoKinetic</a>
+                    <p>Bio-Digital Twin cold-chain integrity platform.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4><a href="/platform">Platform</a><a href="/how-it-works">How It Works</a><a
+                        href="/roi-calculator">ROI Calculator</a><a href="/pricing">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a><a
+                        href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4><a href="#">Documentation</a><a href="#">API Reference</a><a href="#">Case
+                        Studies</a><a href="/compliance">Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
+                        href="#">Security</a><a href="#">GDPR</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 ThermoKinetic. All rights reserved.</span>
+                <div><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span>✓</span>
+        <span id="toastMessage">Demo request sent!</span>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/contact.js"></script>
+</body>
+
+</html>

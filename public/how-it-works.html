@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works — ThermoKinetic</title>
+    <meta name="description"
+        content="From IoT telemetry to Dynamic Expiry in five steps. See how ThermoKinetic transforms raw sensor data into actionable cold-chain intelligence.">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+
+    <!-- ═══ NAVBAR ═══ -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="nav-logo">
+                <svg viewBox="0 0 28 28" fill="none">
+                    <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                        fill="rgba(0,212,255,0.08)" />
+                    <circle cx="14" cy="14" r="4" stroke="#00D4FF" stroke-width="1.5" fill="none" />
+                </svg>
+                ThermoKinetic
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="/">Home</a>
+                <a href="/platform">Platform</a>
+                <a href="/how-it-works" class="active">How It Works</a>
+                <a href="/compliance">Compliance</a>
+                <a href="/pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="/contact" class="nav-login">Login</a>
+                <a href="/contact" class="btn btn-primary btn-sm">Request Demo</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="page-hero">
+        <div class="container fade-up">
+            <span class="eyebrow">THE BIO-DIGITAL TWIN PIPELINE</span>
+            <h1 style="font-size: 40px;">From IoT Telemetry to Dynamic Expiry in Five Steps</h1>
+            <p class="subtitle">See how ThermoKinetic transforms raw sensor data into actionable cold-chain
+                intelligence.</p>
+        </div>
+    </section>
+
+    <!-- ═══ TIMELINE ═══ -->
+    <section class="section">
+        <div class="container">
+            <div class="timeline">
+                <!-- Step 1 — Ingest -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-node">1</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00FF9C"
+                                stroke-width="1.5">
+                                <path d="M12 2v6M12 8l4-2M12 8L8 6" />
+                                <circle cx="12" cy="14" r="6" />
+                                <path d="M12 11v6M9 14h6" />
+                            </svg>
+                        </div>
+                        <h3 class="mb-8">Ingest</h3>
+                        <p>IoT telemetry streams — temperature, humidity, vibration, GPS — are continuously ingested
+                            from shipment sensors via MQTT and REST endpoints at sub-second intervals.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 — Model -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-node">2</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00FF9C"
+                                stroke-width="1.5">
+                                <path d="M4 20L8 12l4 4 4-8 4 4" />
+                                <line x1="4" y1="4" x2="4" y2="20" />
+                                <line x1="4" y1="20" x2="20" y2="20" />
+                            </svg>
+                        </div>
+                        <h3 class="mb-8">Model</h3>
+                        <p>AKM applies multi-order Arrhenius kinetic equations to the real-time thermal profile,
+                            selecting the best-fit degradation model via BIC optimization across isothermal and
+                            fluctuating conditions.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 — Twin -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-node">3</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00FF9C"
+                                stroke-width="1.5">
+                                <path d="M7 4c0 4 5 4 5 8s-5 4-5 8" />
+                                <path d="M17 4c0 4-5 4-5 8s5 4 5 8" />
+                            </svg>
+                        </div>
+                        <h3 class="mb-8">Twin</h3>
+                        <p>A Bio-Digital Twin of each product unit continuously updates its degradation state — tracking
+                            antigenicity, potency, and structural integrity in real time against the kinetic model.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 — Score -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-node">4</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00FF9C"
+                                stroke-width="1.5">
+                                <rect x="4" y="4" width="7" height="7" rx="1" />
+                                <rect x="13" y="4" width="7" height="7" rx="1" />
+                                <rect x="4" y="13" width="7" height="7" rx="1" />
+                                <rect x="15" y="15" width="3" height="3" rx="0.5" fill="#00FF9C" opacity="0.3" />
+                            </svg>
+                        </div>
+                        <h3 class="mb-8">Score</h3>
+                        <p>The Dynamic Expiry QR code is recalculated every cycle — encoding remaining potency,
+                            predicted shelf life, and compliance status into a scannable mobile-verifiable credential.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 — Act -->
+                <div class="timeline-step fade-up">
+                    <div class="timeline-node">5</div>
+                    <div class="timeline-content">
+                        <div class="timeline-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00FF9C"
+                                stroke-width="1.5">
+                                <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                                <path d="M13.73 21a2 2 0 01-3.46 0" />
+                            </svg>
+                        </div>
+                        <h3 class="mb-8">Act</h3>
+                        <p>Compliance officers receive real-time alerts. Routes are automatically adjusted. Shipments
+                            are cleared, rerouted, or flagged — all before a single vial degrades below threshold.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ TECH STACK TABLE ═══ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="text-center mb-48 fade-up">
+                <span class="eyebrow">ARCHITECTURE</span>
+                <h2>Technology Stack</h2>
+            </div>
+            <div class="fade-up" style="overflow-x: auto;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Technology</th>
+                            <th>Purpose</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Sensing</td>
+                            <td><span class="mono">IoT + MQTT</span></td>
+                            <td>Real-time telemetry capture</td>
+                        </tr>
+                        <tr>
+                            <td>Modeling</td>
+                            <td><span class="mono">Arrhenius Kinetic Model</span></td>
+                            <td>Degradation prediction</td>
+                        </tr>
+                        <tr>
+                            <td>Compute</td>
+                            <td><span class="mono">Cloud Functions + Edge</span></td>
+                            <td>Low-latency processing</td>
+                        </tr>
+                        <tr>
+                            <td>Ledger</td>
+                            <td><span class="mono">Hyperledger Fabric (XATP)</span></td>
+                            <td>Blockchain serialization</td>
+                        </tr>
+                        <tr>
+                            <td>Routing</td>
+                            <td><span class="mono">RNN + Graph Neural Net</span></td>
+                            <td>Thermal lane optimization</td>
+                        </tr>
+                        <tr>
+                            <td>Interface</td>
+                            <td><span class="mono">Progressive Web App</span></td>
+                            <td>Cross-platform dashboard</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="section-sm">
+        <div class="container">
+            <div class="cta-banner fade-up">
+                <div style="position: relative; z-index: 1;">
+                    <h3 class="mb-8">Ready to build your Bio-Digital Twin?</h3>
+                    <p>See ThermoKinetic in action with a personalized demo.</p>
+                </div>
+                <a href="/contact" class="btn btn-primary" style="position: relative; z-index: 1;">Request Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="nav-logo" style="margin-bottom:8px;"><svg viewBox="0 0 28 28" width="24"
+                            height="24" fill="none">
+                            <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5"
+                                fill="rgba(0,212,255,0.08)" />
+                        </svg>ThermoKinetic</a>
+                    <p>Bio-Digital Twin cold-chain integrity platform.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4><a href="/platform">Platform</a><a href="/how-it-works">How It Works</a><a
+                        href="/roi-calculator">ROI Calculator</a><a href="/pricing">Pricing</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4><a href="#">About</a><a href="#">Careers</a><a href="#">Blog</a><a
+                        href="/contact">Contact</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4><a href="#">Documentation</a><a href="#">API Reference</a><a href="#">Case
+                        Studies</a><a href="/compliance">Compliance</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a
+                        href="#">Security</a><a href="#">GDPR</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 ThermoKinetic. All rights reserved.</span>
+                <div><a href="#">Privacy Policy</a><a href="#">Terms</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

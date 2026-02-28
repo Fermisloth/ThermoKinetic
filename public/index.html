@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThermoKinetic — Cold-Chain Intelligence. Dynamic Expiry. Zero Waste.</title>
+  <meta name="description" content="ThermoKinetic replaces static 'Use By' dates with live, AI-calculated Dynamic Expiry — eliminating $35B in annual pharma losses with 89% degradation forecast accuracy.">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="nav-logo">
+        <svg viewBox="0 0 28 28" fill="none">
+          <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5" fill="rgba(0,212,255,0.08)"/>
+          <circle cx="14" cy="14" r="4" stroke="#00D4FF" stroke-width="1.5" fill="none"/>
+        </svg>
+        ThermoKinetic
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="/" class="active">Home</a>
+        <a href="/platform">Platform</a>
+        <a href="/how-it-works">How It Works</a>
+        <a href="/compliance">Compliance</a>
+        <a href="/pricing">Pricing</a>
+      </div>
+      <div class="nav-actions">
+        <a href="/contact" class="nav-login">Login</a>
+        <a href="/contact" class="btn btn-primary btn-sm">Request Demo</a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="section" style="padding-top: calc(72px + 80px);">
+    <div class="container">
+      <div class="grid grid-2" style="align-items: center; gap: 64px;">
+        <!-- Text Column -->
+        <div class="fade-up">
+          <span class="eyebrow">BIO-DIGITAL TWIN PLATFORM</span>
+          <h1 class="mb-16">Cold-Chain Intelligence.<br>Dynamic Expiry. Zero Waste.</h1>
+          <p class="body-lg mb-32">ThermoKinetic replaces static "Use By" dates with live, AI-calculated Dynamic Expiry — eliminating $35B in annual pharma losses with 89% degradation forecast accuracy.</p>
+          <div class="flex flex-gap">
+            <a href="/contact" class="btn btn-primary">Request Demo</a>
+            <a href="/how-it-works" class="btn btn-secondary">See How It Works →</a>
+          </div>
+        </div>
+        <!-- Visual Column -->
+        <div class="hero-visual fade-up" style="animation-delay: 0.2s;">
+          <div class="hero-glow"></div>
+          <div class="shipment-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <span class="mono" style="font-size: 11px; opacity: 0.6;">SHIPMENT #TK-29847</span>
+              <span class="badge" style="font-size: 10px; padding: 4px 10px;">● LIVE</span>
+            </div>
+            <div class="temp-chart">
+              <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#00D4FF" stop-opacity="0.3"/>
+                    <stop offset="100%" stop-color="#00D4FF" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M0,80 Q30,75 60,70 T120,65 T180,72 T240,60 T300,55 T360,50 L400,48" stroke="#00D4FF" stroke-width="2" fill="none" class="svg-draw"/>
+                <path d="M0,80 Q30,75 60,70 T120,65 T180,72 T240,60 T300,55 T360,50 L400,48 L400,120 L0,120 Z" fill="url(#chartGrad)" opacity="0.5"/>
+                <text x="10" y="20" fill="#8BA3C7" font-family="JetBrains Mono" font-size="10">-2°C — -8°C RANGE</text>
+                <line x1="0" y1="40" x2="400" y2="40" stroke="#1E3050" stroke-width="0.5" stroke-dasharray="4"/>
+                <line x1="0" y1="90" x2="400" y2="90" stroke="#FF6B35" stroke-width="0.5" stroke-dasharray="4"/>
+                <text x="350" y="100" fill="#FF6B35" font-family="JetBrains Mono" font-size="8">LIMIT</text>
+              </svg>
+            </div>
+            <div class="qr-block">
+              <div class="qr-placeholder">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                  <rect x="4" y="4" width="10" height="10" rx="2" stroke="#00FF9C" stroke-width="1.5"/>
+                  <rect x="18" y="4" width="10" height="10" rx="2" stroke="#00FF9C" stroke-width="1.5"/>
+                  <rect x="4" y="18" width="10" height="10" rx="2" stroke="#00FF9C" stroke-width="1.5"/>
+                  <rect x="20" y="20" width="6" height="6" rx="1" fill="#00FF9C" opacity="0.4"/>
+                  <rect x="7" y="7" width="4" height="4" rx="1" fill="#00FF9C" opacity="0.4"/>
+                </svg>
+              </div>
+              <div class="qr-info">
+                <div class="qr-label">Dynamic Expiry</div>
+                <div class="potency-value" id="potencyCounter">98.4%</div>
+                <div class="potency-label">Current Potency</div>
+              </div>
+              <div style="text-align: right;">
+                <div class="mono" style="font-size: 11px; color: var(--accent-bio);">VERIFIED</div>
+                <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Mar 2026</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SOCIAL PROOF BAR ═══ -->
+  <div class="proof-bar fade-up">
+    <div class="container">
+      <span class="proof-text">Validated with stability data from</span>
+      <span class="proof-logo">AbbVie</span>
+      <span class="proof-logo">Novartis</span>
+      <span class="proof-logo">Sanofi</span>
+      <span class="proof-badge">WHO PQS</span>
+      <span class="proof-badge">DSCSA</span>
+    </div>
+  </div>
+
+  <!-- ═══ PROBLEM / SOLUTION SPLIT ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2 fade-up" style="gap: 32px;">
+        <!-- Problem Panel -->
+        <div class="split-panel split-problem">
+          <h3><span style="color: var(--accent-warn);">⚠</span> The Reactive Cold-Chain</h3>
+          <div class="grid" style="grid-template-columns: 1fr; gap: 16px; margin-top: 24px;">
+            <div class="stat-card">
+              <div class="stat-number warn">$35B</div>
+              <div class="stat-label">Annual Global Losses</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number warn">50%</div>
+              <div class="stat-label">Vaccine Discard Rate in Developing Nations</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number white">Static</div>
+              <div class="stat-label">Stability Testing = Unnecessary Write-Offs</div>
+            </div>
+          </div>
+        </div>
+        <!-- Solution Panel -->
+        <div class="split-panel split-solution">
+          <h3><span style="color: var(--accent-bio);">✦</span> The ThermoKinetic Approach</h3>
+          <div class="grid" style="grid-template-columns: 1fr; gap: 16px; margin-top: 24px;">
+            <div class="stat-card">
+              <div class="stat-number cryo counter" data-target="89">0</div>
+              <div class="stat-label">Degradation Forecast Accuracy (%)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number bio counter" data-target="22">0</div>
+              <div class="stat-label">mRNA Waste Reduction (%)</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number cryo">Dynamic</div>
+              <div class="stat-label">Expiry vs. Static "Use By"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ THREE FEATURE CARDS ═══ -->
+  <section class="section" style="background: rgba(0,212,255,0.01);">
+    <div class="container">
+      <div class="text-center mb-48 fade-up">
+        <span class="eyebrow">PLATFORM CAPABILITIES</span>
+        <h2>From Reactive Logistics to Predictive Intelligence</h2>
+      </div>
+      <div class="grid grid-3 fade-up">
+        <!-- AKM-Predict -->
+        <div class="card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 12c2-4 4-8 6-4s4 8 6 4 4-8 6-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="mb-8">AKM-Predict</h3>
+          <p class="mb-24">Real-time Arrhenius kinetic modeling that predicts product degradation with laboratory-grade precision using live IoT telemetry.</p>
+          <span class="badge">Arrhenius + BIC Optimization</span>
+        </div>
+        <!-- XATP Blockchain -->
+        <div class="card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M10 6.5h4M6.5 10v4M17.5 10v4M10 17.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="mb-8">XATP Blockchain Auth</h3>
+          <p class="mb-24">DSCSA-compliant serialization with Hyperledger Fabric, providing immutable chain-of-custody from manufacturer to dispenser.</p>
+          <span class="badge">Hyperledger Fabric</span>
+        </div>
+        <!-- Thermal Lane Routing -->
+        <div class="card">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24"><circle cx="5" cy="19" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="19" cy="5" r="2" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 17L12 12 17 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 12L8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 3"/></svg>
+          </div>
+          <h3 class="mb-8">Thermal Lane Routing</h3>
+          <p class="mb-24">AI-powered predictive rerouting using RNN and Graph Neural Networks to minimize thermal excursion risk across global shipping lanes.</p>
+          <span class="badge">RNN + Graph Neural Net</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ═══ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-banner fade-up">
+        <div style="position: relative; z-index: 1;">
+          <h3 class="mb-8">Every hour of delay is a potency loss event.</h3>
+          <p>See your shipment's Bio-Digital Twin in real time.</p>
+        </div>
+        <a href="/contact" class="btn btn-primary" style="position: relative; z-index: 1;">Start Free Pilot</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-logo" style="margin-bottom: 8px;">
+            <svg viewBox="0 0 28 28" width="24" height="24" fill="none">
+              <polygon points="14,2 25,8 25,20 14,26 3,20 3,8" stroke="#00D4FF" stroke-width="1.5" fill="rgba(0,212,255,0.08)"/>
+            </svg>
+            ThermoKinetic
+          </a>
+          <p>Bio-Digital Twin cold-chain integrity platform. Replacing static "Use By" with live Dynamic Expiry.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <a href="/platform">Platform</a>
+          <a href="/how-it-works">How It Works</a>
+          <a href="/roi-calculator">ROI Calculator</a>
+          <a href="/pricing">Pricing</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Careers</a>
+          <a href="#">Blog</a>
+          <a href="/contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <a href="#">Documentation</a>
+          <a href="#">API Reference</a>
+          <a href="#">Case Studies</a>
+          <a href="/compliance">Compliance</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Security</a>
+          <a href="#">GDPR</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ThermoKinetic. All rights reserved.</span>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

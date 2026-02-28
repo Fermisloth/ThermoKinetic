@@ -1,0 +1,22 @@
+{
+  "name": "thermokinetic",
+  "version": "1.0.0",
+  "description": "ThermoKinetic — Bio-Digital Twin Cold-Chain Integrity Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "cold-chain",
+    "pharma",
+    "saas"
+  ],
+  "author": "ThermoKinetic",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.21.0",
+    "puppeteer": "^24.37.5"
+  }
+}
