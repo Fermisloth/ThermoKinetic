@@ -23,7 +23,7 @@ The global pharmaceutical industry loses an estimated **$35 billion annually** d
 Uses **Advanced Kinetic Modeling (AKM)** methodology with the Arrhenius equation to simulate loss of antigenicity or purity in real time. Models are validated against 20–30 experimental data points and optimized with the **Bayesian Information Criterion (BIC)** for statistical best-fit accuracy.
 
 ### 🔗 XATP Blockchain Authentication
-Implements the **eXtended ATP (XATP)** framework for full compliance with the **US Drug Supply Chain Security Act (DSCSA)**. Enables Day Zero interoperability between manufacturers and dispensers using verifiable credentials authenticated on mobile devices — powered by **Hyperledger Fabric**.
+Implements the **eXtended ATP (XATP)** framework for full compliance with the **INDIA Drug Supply Chain Security Act (DSCSA)**. Enables Day Zero interoperability between manufacturers and dispensers using verifiable credentials authenticated on mobile devices — powered by **Hyperledger Fabric**.
 
 ### 🗺️ Predictive Thermal Lane Routing
 AI-driven route intelligence that analyzes historical temperature patterns and flags high-risk shipping lanes *before* an excursion occurs. Recommends adding coolant, adjusting routes, or rescheduling delivery windows proactively.
