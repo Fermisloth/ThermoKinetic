@@ -83,10 +83,10 @@
                     <div>
                         <span class="range-label" style="display: block; margin-bottom: 12px;">Product Type</span>
                         <div class="pill-toggle" id="productToggle">
-                            <button class="pill-option" data-value="mRNA">mRNA</button>
-                            <button class="pill-option active" data-value="Vaccine">Vaccine</button>
-                            <button class="pill-option" data-value="Biologic">Biologic</button>
-                            <button class="pill-option" data-value="Insulin">Insulin</button>
+                            <button class="pill-option active" data-value="mrna_vaccine">mRNA Vaccine</button>
+                            <button class="pill-option" data-value="biologic">Biologic</button>
+                            <button class="pill-option" data-value="insulin">Insulin</button>
+                            <button class="pill-option" data-value="general">General</button>
                         </div>
                     </div>
                 </div>
@@ -125,8 +125,58 @@
                                 style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent-cryo); animation: qrPulse 2s ease infinite;"></span>
                             <span class="mono" style="font-size: 10px;">REDUCTION</span>
                         </div>
-                        <div class="stat-number cryo" id="reductionOutput">20%</div>
+                        <div class="stat-number cryo" id="reductionOutput">22%</div>
                         <div class="stat-label">Waste Reduction</div>
+                    </div>
+
+                    <!-- New: Enhanced Server-Calculated Fields -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
+                        <div class="stat-card" style="padding: 16px;">
+                            <div class="mono"
+                                style="font-size: 10px; color: var(--text-secondary); margin-bottom: 4px;">SHIPMENTS
+                                SAVED</div>
+                            <div class="stat-number" id="shipmentsSavedOutput" style="font-size: 24px;">—</div>
+                            <div class="stat-label">per year</div>
+                        </div>
+                        <div class="stat-card" style="padding: 16px;">
+                            <div class="mono"
+                                style="font-size: 10px; color: var(--text-secondary); margin-bottom: 4px;">SUGGESTED
+                                TIER</div>
+                            <div class="stat-number" id="tierOutput"
+                                style="font-size: 24px; text-transform: uppercase;">—</div>
+                            <div class="stat-label">ThermoKinetic plan</div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
+                        <div class="stat-card" style="padding: 16px;">
+                            <div class="mono" style="font-size: 10px; color: var(--accent-bio); margin-bottom: 4px;">NET
+                                ROI</div>
+                            <div class="stat-number bio" id="netRoiOutput" style="font-size: 24px;">—</div>
+                            <div class="stat-label">after platform cost</div>
+                        </div>
+                        <div class="stat-card" style="padding: 16px;">
+                            <div class="mono" style="font-size: 10px; color: var(--accent-cryo); margin-bottom: 4px;">
+                                ROI MULTIPLE</div>
+                            <div class="stat-number cryo" id="roiMultipleOutput" style="font-size: 24px;">—</div>
+                            <div class="stat-label">return on investment</div>
+                        </div>
+                    </div>
+
+                    <!-- Benchmarks Strip -->
+                    <div id="benchmarksStrip"
+                        style="display: none; border-top: 1px solid rgba(0,212,255,0.1); padding-top: 16px; margin-top: 8px;">
+                        <div class="mono" style="font-size: 10px; color: var(--text-secondary); margin-bottom: 8px;">
+                            INDUSTRY BENCHMARKS</div>
+                        <div style="display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px;">
+                            <span style="color: var(--accent-warn);">$<span id="benchLoss">35B</span> annual loss</span>
+                            <span style="color: var(--text-secondary);">•</span>
+                            <span style="color: var(--accent-bio);"><span id="benchAccuracy">89%</span> forecast
+                                accuracy</span>
+                            <span style="color: var(--text-secondary);">•</span>
+                            <span style="color: var(--accent-cryo);"><span id="benchDiscard">50%</span> vaccine discard
+                                rate</span>
+                        </div>
                     </div>
 
                     <a href="/contact"

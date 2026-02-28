@@ -1,11 +1,17 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
 
+// ── Route Modules ─────────────────────────────────────────────
+const akmRoutes = require('./routes/akm');
+const roiRoutes = require('./routes/roi');
+const demoRoutes = require('./routes/demo');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// ── Middleware ─────────────────────────────────────────────────
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -20,89 +26,50 @@ if (!fs.existsSync(submissionsFile)) {
     fs.writeFileSync(submissionsFile, '[]', 'utf8');
 }
 
-// ─── API Routes ────────────────────────────────────────────
+// ─── API Routes (modular) ─────────────────────────────────────
+app.use('/api/akm', akmRoutes);
+app.use('/api/roi', roiRoutes);
+app.use('/api/demo', demoRoutes);
 
-// POST /api/contact — Store demo request
+// ─── Legacy API Routes (kept for backward compatibility) ──────
+// POST /api/contact — redirects to /api/demo/submit
 app.post('/api/contact', (req, res) => {
-    try {
-        const { name, company, role, email, volume, message } = req.body;
+    // Map legacy fields to new schema
+    const { name, company, role, email, volume, message } = req.body;
 
-        // Basic validation
-        if (!name || !company || !email) {
-            return res.status(400).json({ success: false, error: 'Name, company, and email are required.' });
-        }
-
-        const submission = {
-            id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
-            name,
-            company,
-            role: role || 'Not specified',
-            email,
-            volume: volume || 'Not specified',
-            message: message || '',
-            submittedAt: new Date().toISOString()
-        };
-
-        // Read existing submissions
-        let submissions = [];
-        try {
-            const data = fs.readFileSync(submissionsFile, 'utf8');
-            submissions = JSON.parse(data);
-        } catch (e) {
-            submissions = [];
-        }
-
-        submissions.push(submission);
-        fs.writeFileSync(submissionsFile, JSON.stringify(submissions, null, 2), 'utf8');
-
-        console.log(`[DEMO REQUEST] New submission from ${name} at ${company} (${email})`);
-
-        res.json({
-            success: true,
-            message: 'Demo request received! We\'ll respond within 24 hours.',
-            id: submission.id
-        });
-    } catch (err) {
-        console.error('Error saving submission:', err);
-        res.status(500).json({ success: false, error: 'Internal server error.' });
+    if (!name || !company || !email) {
+        return res.status(400).json({ success: false, error: 'Name, company, and email are required.' });
     }
-});
 
-// POST /api/roi — Calculate ROI
-app.post('/api/roi', (req, res) => {
+    const submission = {
+        id: Date.now().toString(36) + Math.random().toString(36).substr(2, 5),
+        name,
+        company,
+        role: role || 'Not specified',
+        email,
+        volume: volume || 'Not specified',
+        message: message || '',
+        submittedAt: new Date().toISOString()
+    };
+
+    let submissions = [];
     try {
-        const { shipmentVolume, productValue, excursionRate, productType } = req.body;
-
-        const volume = parseFloat(shipmentVolume) || 10000;
-        const value = parseFloat(productValue) || 250;
-        const rate = parseFloat(excursionRate) || 8;
-
-        // Waste reduction factors by product type
-        const reductionFactors = {
-            mRNA: 0.22,
-            Biologic: 0.18,
-            Insulin: 0.15,
-            Vaccine: 0.20
-        };
-
-        const reductionFactor = reductionFactors[productType] || 0.20;
-        const annualWaste = volume * value * (rate / 100);
-        const projectedSavings = annualWaste * reductionFactor;
-        const wasteReduction = (reductionFactor * 100);
-
-        res.json({
-            success: true,
-            results: {
-                annualWaste: Math.round(annualWaste),
-                projectedSavings: Math.round(projectedSavings),
-                wasteReduction: wasteReduction,
-                productType: productType || 'Vaccine'
-            }
-        });
-    } catch (err) {
-        console.error('Error calculating ROI:', err);
-        res.status(500).json({ success: false, error: 'Calculation error.' });
+        const data = fs.readFileSync(submissionsFile, 'utf8');
+        submissions = JSON.parse(data);
+    } catch (e) {
+        submissions = [];
     }
+
+    submissions.push(submission);
+    fs.writeFileSync(submissionsFile, JSON.stringify(submissions, null, 2), 'utf8');
+
+    console.log(`[DEMO REQUEST] New submission from ${name} at ${company} (${email})`);
+
+    res.json({
+        success: true,
+        message: 'Demo request received! We\'ll respond within 24 hours.',
+        id: submission.id
+    });
 });
 
 // GET /api/submissions — View all submissions (admin)
@@ -117,7 +84,6 @@ app.get('/api/submissions', (req, res) => {
 });
 
 // ─── Page Routes ───────────────────────────────────────────
-
 const pages = ['platform', 'how-it-works', 'roi-calculator', 'compliance', 'pricing', 'contact'];
 pages.forEach(page => {
     app.get(`/${page}`, (req, res) => {
@@ -131,16 +97,16 @@ app.get('/', (req, res) => {
 });
 
 // ─── Start Server ──────────────────────────────────────────
-
 app.listen(PORT, () => {
     console.log('');
-    console.log('  ╔══════════════════════════════════════════════╗');
-    console.log('  ║                                              ║');
-    console.log('  ║   ❄️  ThermoKinetic Server Running            ║');
-    console.log('  ║                                              ║');
-    console.log(`  ║   → Local:   http://localhost:${PORT}            ║`);
-    console.log('  ║   → API:     /api/contact, /api/roi          ║');
-    console.log('  ║                                              ║');
-    console.log('  ╚══════════════════════════════════════════════╝');
+    console.log('  ╔══════════════════════════════════════════════════╗');
+    console.log('  ║                                                  ║');
+    console.log('  ║   ❄️  ThermoKinetic Server Running                ║');
+    console.log('  ║                                                  ║');
+    console.log(`  ║   → Local:   http://localhost:${PORT}                ║`);
+    console.log('  ║   → API:     /api/akm, /api/roi, /api/demo       ║');
+    console.log('  ║   → Legacy:  /api/contact, /api/submissions      ║');
+    console.log('  ║                                                  ║');
+    console.log('  ╚══════════════════════════════════════════════════╝');
     console.log('');
 });

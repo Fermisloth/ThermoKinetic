@@ -123,6 +123,86 @@
         </div>
     </section>
 
+    <!-- ═══ LIVE AKM CALCULATOR ═══ -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="text-center mb-48 fade-up">
+                <span class="eyebrow">INTERACTIVE DEMO</span>
+                <h2>Try the AKM Engine Live</h2>
+                <p class="subtitle">Enter temperature excursions to see real-time potency degradation and Dynamic Expiry
+                    calculations.</p>
+            </div>
+
+            <div id="akmWidget" class="grid grid-2 fade-up" style="gap: 32px; align-items: start;">
+                <!-- Input Panel -->
+                <div class="card card-no-hover">
+                    <h3 class="mb-24">Excursion Parameters</h3>
+
+                    <div class="form-group">
+                        <label class="form-label">Product Type</label>
+                        <select id="akmProductType" class="form-select">
+                            <option value="mrna_vaccine">Loading products...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" style="margin-bottom: 8px;">Temperature Excursions</label>
+                        <div style="display: flex; gap: 12px; margin-bottom: 6px;">
+                            <span class="mono" style="flex: 1; font-size: 10px; color: var(--text-secondary);">TEMP
+                                (°C)</span>
+                            <span class="mono" style="flex: 1; font-size: 10px; color: var(--text-secondary);">DURATION
+                                (hrs)</span>
+                            <span style="width: 32px;"></span>
+                        </div>
+                        <div id="excursionsList">
+                            <div class="excursion-row"
+                                style="display: flex; gap: 12px; align-items: center; margin-bottom: 8px;">
+                                <div style="flex: 1;">
+                                    <input type="number" class="form-input exc-temp" placeholder="e.g. 8" step="0.1"
+                                        min="-80" max="60" value="8" style="padding: 8px 12px; font-size: 13px;">
+                                </div>
+                                <div style="flex: 1;">
+                                    <input type="number" class="form-input exc-dur" placeholder="e.g. 4" step="0.1"
+                                        min="0.1" max="720" value="4" style="padding: 8px 12px; font-size: 13px;">
+                                </div>
+                                <span style="width: 32px;"></span>
+                            </div>
+                        </div>
+                        <button type="button" id="addExcursion"
+                            style="background: none; border: 1px dashed rgba(0,212,255,0.3); color: var(--accent-cryo); padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 12px; width: 100%; font-family: 'JetBrains Mono', monospace;">+
+                            Add Excursion Segment</button>
+                    </div>
+
+                    <button type="button" id="akmCalculateBtn" class="btn btn-primary btn-full"
+                        style="margin-top: 16px;">Calculate Potency →</button>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="card card-no-hover" style="border-left: 4px solid var(--accent-cryo);">
+                    <h3 class="mb-24">AKM Results</h3>
+                    <div id="akmResults" style="display: none;">
+                        <p style="text-align: center; color: var(--text-secondary); font-size: 14px; padding: 48px 0;">
+                            Submit excursion data to see results</p>
+                    </div>
+                    <div id="akmResultsPlaceholder"
+                        style="text-align: center; color: var(--text-secondary); font-size: 14px; padding: 48px 0;">
+                        <div style="margin-bottom: 16px;">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.3)"
+                                stroke-width="1">
+                                <path d="M2 12c2-4 4-8 6-4s4 8 6 4 4-8 6-4" />
+                            </svg>
+                        </div>
+                        <p>Configure excursion parameters and click<br><strong
+                                style="color: var(--accent-cryo);">"Calculate Potency"</strong> to see results</p>
+                        <div class="mono"
+                            style="font-size: 10px; color: var(--text-secondary); margin-top: 16px; opacity: 0.6;">
+                            Powered by Arrhenius First-Order AKM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ XATP BLOCKCHAIN ═══ -->
     <section class="section" style="background: rgba(0,212,255,0.01);">
         <div class="container">
@@ -328,6 +408,7 @@
     </footer>
 
     <script src="/js/main.js"></script>
+    <script src="/js/akm-calculator.js"></script>
 </body>
 
 </html>

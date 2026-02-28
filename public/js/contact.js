@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    ThermoKinetic — Contact Form Handler
-   Validates and submits demo requests to /api/contact
+   Validates and submits demo requests to /api/demo/submit
    ═══════════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,13 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
             company: document.getElementById('company').value.trim(),
             role: document.getElementById('role').value,
             email: document.getElementById('email').value.trim(),
-            volume: document.getElementById('volume').value.trim(),
+            monthlyShipmentVolume: document.getElementById('volume').value,
             message: document.getElementById('message').value.trim()
         };
 
         // Client-side validation
         if (!formData.name || !formData.company || !formData.email) {
             showToast('Please fill in all required fields.', true);
+            resetButton();
+            return;
+        }
+
+        if (!formData.role) {
+            showToast('Please select a role.', true);
             resetButton();
             return;
         }
@@ -42,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch('/api/demo/submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -51,10 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const result = await response.json();
 
             if (result.success) {
-                showToast('Demo request sent! We\'ll respond within 24 hours.', false);
+                showToast(result.message || 'Demo request sent! We\'ll respond within 1 business day.', false);
                 form.reset();
             } else {
-                showToast(result.error || 'Something went wrong. Please try again.', true);
+                const errorMsg = result.errors
+                    ? result.errors.map(e => e.msg).join('. ')
+                    : result.error || 'Something went wrong. Please try again.';
+                showToast(errorMsg, true);
             }
         } catch (err) {
             showToast('Network error. Please check your connection and try again.', true);

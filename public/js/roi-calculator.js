@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    ThermoKinetic — ROI Calculator
-   Interactive sliders with live output calculation
+   Interactive sliders with server-side ROI calculation
    ═══════════════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,17 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const reductionOutput = document.getElementById('reductionOutput');
     const productToggle = document.getElementById('productToggle');
 
+    // New output elements
+    const shipmentsSavedOutput = document.getElementById('shipmentsSavedOutput');
+    const tierOutput = document.getElementById('tierOutput');
+    const netRoiOutput = document.getElementById('netRoiOutput');
+    const roiMultipleOutput = document.getElementById('roiMultipleOutput');
+
     if (!volumeSlider) return;
 
-    let selectedProduct = 'Vaccine';
-
-    // Waste reduction factors by product type
-    const reductionFactors = {
-        mRNA: 0.22,
-        Biologic: 0.18,
-        Insulin: 0.15,
-        Vaccine: 0.20
-    };
+    let selectedProduct = 'mrna_vaccine';
+    let calcTimeout = null;
 
     function formatCurrency(num) {
         return '$' + num.toLocaleString('en-US');
@@ -50,25 +49,70 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(update);
     }
 
+    // Debounced server-side calculation
     function calculate() {
         const volume = parseInt(volumeSlider.value);
         const value = parseInt(valueSlider.value);
         const rate = parseInt(rateSlider.value);
-        const factor = reductionFactors[selectedProduct] || 0.20;
 
-        const annualWaste = volume * value * (rate / 100);
-        const projectedSavings = annualWaste * factor;
-        const wasteReduction = factor * 100;
-
-        // Update display values
+        // Update display values immediately
         volumeVal.textContent = volume.toLocaleString('en-US') + ' units';
         valueVal.textContent = formatCurrency(value);
         rateVal.textContent = rate + '%';
 
-        // Animate outputs
-        animateValue(wasteOutput, Math.round(annualWaste), '$');
-        animateValue(savingsOutput, Math.round(projectedSavings), '$');
-        reductionOutput.textContent = wasteReduction + '%';
+        // Debounce API call (300ms)
+        clearTimeout(calcTimeout);
+        calcTimeout = setTimeout(() => {
+            fetchROI(volume, value, rate, selectedProduct);
+        }, 300);
+    }
+
+    async function fetchROI(annualShipments, avgProductValueUSD, currentExcursionRate, productType) {
+        try {
+            const response = await fetch('/api/roi/calculate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    annualShipments,
+                    avgProductValueUSD,
+                    currentExcursionRate,
+                    productType
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                const r = data.result;
+                const p = data.platform;
+
+                // Animate main outputs
+                animateValue(wasteOutput, r.currentAnnualWasteUSD, '$');
+                animateValue(savingsOutput, r.projectedAnnualSavingsUSD, '$');
+                reductionOutput.textContent = r.wasteReductionPercent + '%';
+
+                // Update new fields
+                if (shipmentsSavedOutput) {
+                    animateValue(shipmentsSavedOutput, r.shipmentsSavedPerYear);
+                }
+                if (tierOutput) {
+                    tierOutput.textContent = p.suggestedTier;
+                }
+                if (netRoiOutput) {
+                    if (typeof p.netROIafterPlatformUSD === 'number') {
+                        animateValue(netRoiOutput, p.netROIafterPlatformUSD, '$');
+                    } else {
+                        netRoiOutput.textContent = p.netROIafterPlatformUSD;
+                    }
+                }
+                if (roiMultipleOutput) {
+                    roiMultipleOutput.textContent = p.roiMultiple;
+                }
+            }
+        } catch (err) {
+            console.error('ROI API error:', err);
+            // Fallback: keep displaying whatever is currently shown
+        }
     }
 
     // Slider event listeners
@@ -89,6 +133,29 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Initial calculation
+    // Load benchmarks on page load
+    async function loadBenchmarks() {
+        try {
+            const response = await fetch('/api/roi/benchmarks');
+            const data = await response.json();
+            if (data.success) {
+                const b = data.benchmarks;
+                const strip = document.getElementById('benchmarksStrip');
+                const benchLoss = document.getElementById('benchLoss');
+                const benchAccuracy = document.getElementById('benchAccuracy');
+                const benchDiscard = document.getElementById('benchDiscard');
+
+                if (benchLoss) benchLoss.textContent = '$' + (b.industryAnnualLossUSD / 1e9).toFixed(0) + 'B';
+                if (benchAccuracy) benchAccuracy.textContent = b.degradationForecastAccuracy;
+                if (benchDiscard) benchDiscard.textContent = b.globalVaccineDiscardRate;
+                if (strip) strip.style.display = 'block';
+            }
+        } catch (err) {
+            console.error('Benchmarks fetch error:', err);
+        }
+    }
+
+    // Initial calculation and benchmarks
     calculate();
+    loadBenchmarks();
 });
